@@ -19,7 +19,7 @@ class Transportation:
 		print ("Forward! ")
 		GPIO.output(LEFT_GPIO,GPIO.HIGH)
 		GPIO.output(RIGHT_GPIO,GPIO.HIGH)
-		time.sleep(250)
+		time.sleep(DEFAULT_DELAY)
 		GPIO.output(LEFT_GPIO,GPIO.LOW)
 		GPIO.output(RIGHT_GPIO,GPIO.LOW)
 		
@@ -38,6 +38,6 @@ class Transportation:
 		# init.
 		print ("Battleship operational. Wheels engaged.")
 		GPIO.setmode(GPIO.BOARD)
-		GPIO.setup(13, GPIO.OUT) # left wheels
-		GPIO.setup(15, GPIO.OUT) # right wheels
+		GPIO.setup(LEFT_GPIO, GPIO.OUT) # left wheels
+		GPIO.setup(RIGHT_GPIO, GPIO.OUT) # right wheels
 		
