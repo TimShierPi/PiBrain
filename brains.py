@@ -10,12 +10,13 @@ class Brain:
 		print ("I'm ALIVE!")
 		sensor = sensors.Sensor()
 		transport = transportation.Transportation()
-		transport.together()
-		time.sleep(1)
-		transport.turnLeft()
-		time.sleep(1)
-		transport.turnRight()
-		print ("And we're done!")
+		for x in range(0, 3):
+			transport.together()
+			time.sleep(1)
+			transport.turnLeft()
+			time.sleep(1)
+			transport.turnRight()
+			print ("And we're done!")
 		
 
 
