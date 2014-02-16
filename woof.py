@@ -4,12 +4,11 @@ import curses
 
 
 class Woof:
-	brain = 1
+	brain = brains.Brain()
 	
 	def __init__(self):
 		# init.
 		print ("W00f!")
-		brain = brains.Brain()
 		
 
 
