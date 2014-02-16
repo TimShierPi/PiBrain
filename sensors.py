@@ -18,6 +18,5 @@ class Sensor:
 		print ("Sensor up!")
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setup(7,GPIO.OUT)
-		lookSee(self)
 
 

@@ -19,6 +19,7 @@ class Brain:
 			transport.turnLeft()
 			time.sleep(1)
 			transport.turnRight()
+			sensor.lookSee()
 			print ("And we're done!")
 		
 
