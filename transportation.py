@@ -27,9 +27,9 @@ class Transportation:
 	def turnLeft(distanceTime=DEFAULT_DELAY, counterTurn=True):
 		# move left wheels in direction of 'forward'.
 		# counter turn makes the other wheels reverse to assist in the turn
-		GPIO.output(LEFT_GPIO,GPIO.HIGH)
+		GPIO.output(RIGHT_GPIO,GPIO.HIGH)
 		time.sleep(DEFAULT_DELAY)
-		GPIO.output(LEFT_GPIO,GPIO.LOW)
+		GPIO.output(RIGHT_GPIO,GPIO.LOW)
 		print ("Left!")
 
 	def turnRight(distanceTime=DEFAULT_DELAY, counterTurn=True):
