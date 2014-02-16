@@ -6,12 +6,11 @@ import worldPerspective
 class Brain:
 	sensor = 1
 	wheels = 1
-	transport = 1
+	transport = transportation.Transportation()
 	def __init__(self):
 		# init.
 		print ("I'm ALIVE!")
 		sensor = sensors.Sensor()
-		transport = transportation.Transportation()
 		worldView = worldPerspective.World()
 		for x in range(0, 1):
 			transport.together()
