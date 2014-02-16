@@ -1,8 +1,8 @@
 # Transportation handles all controls to the wheel base. 
 
 # Config
-LEFT_GPIO = 13
-RIGHT_GPIO = 15
+LEFT_GPIO = 15
+RIGHT_GPIO = 13
 
 
 DEFAULT_DELAY = 0.5 # 200 ms
