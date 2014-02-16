@@ -1,6 +1,6 @@
 import brains
 import sensors
-
+import curses
 
 
 class Woof:
@@ -16,4 +16,25 @@ class Woof:
 		
 
 robot = Woof()
+
+
+#init the curses screen
+stdscr = curses.initscr()
+#use cbreak to not require a return key press
+curses.cbreak()
+print "press q to quit"
+quit=False
+# loop
+while quit !=True:
+	c = stdscr.getch()
+	print curses.keyname(c),
+	if curses.keyname(c)=="q" :
+		quit=True
+	elif curses.keyname(c)=="i":
+		print "forward button!"
+	elif curses.keyname(c)=="j":
+		print "turn left!"
+	elif curses.keyname(c)=="l":
+		print "turn right!"
+		
 

@@ -1,6 +1,7 @@
 import sensors
 import transportation
 import time
+import worldPerspective
 
 class Brain:
 	sensor = 1
@@ -10,6 +11,7 @@ class Brain:
 		print ("I'm ALIVE!")
 		sensor = sensors.Sensor()
 		transport = transportation.Transportation()
+		worldView = worldPerspective.World()
 		for x in range(0, 3):
 			transport.together()
 			time.sleep(1)
