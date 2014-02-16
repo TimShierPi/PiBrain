@@ -10,6 +10,8 @@ class Brain:
 		sensor = sensors.Sensor()
 		transport = transportation.Transportation()
 		transport.together()
+		transport.turnLeft()
+		transport.turnRight()
 		
 
 
