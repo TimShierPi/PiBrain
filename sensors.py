@@ -3,7 +3,7 @@ import time
 
 class Sensor:
 
-	def lookSee():
+	def lookSee(self):
 		try:
 			while True:
 				GPIO.output(7,1)
@@ -18,6 +18,6 @@ class Sensor:
 		print ("Sensor up!")
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setup(7,GPIO.OUT)
-		lookSee()
+		lookSee(self)
 
 
