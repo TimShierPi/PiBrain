@@ -6,6 +6,7 @@ import worldPerspective
 class Brain:
 	sensor = 1
 	wheels = 1
+	transport = 1
 	def __init__(self):
 		# init.
 		print ("I'm ALIVE!")
