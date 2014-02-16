@@ -12,7 +12,7 @@ class Brain:
 		sensor = sensors.Sensor()
 		transport = transportation.Transportation()
 		worldView = worldPerspective.World()
-		for x in range(0, 3):
+		for x in range(0, 1):
 			transport.together()
 			time.sleep(1)
 			transport.turnLeft()

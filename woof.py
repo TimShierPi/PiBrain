@@ -32,9 +32,12 @@ while quit !=True:
 		quit=True
 	elif curses.keyname(c)=="i":
 		print "forward button!"
+		robot.brain.transport.together()
 	elif curses.keyname(c)=="j":
 		print "turn left!"
+		robot.brain.transport.turnLeft()
 	elif curses.keyname(c)=="l":
 		print "turn right!"
+		robot.brain.transport.turnRight()
 		
 
