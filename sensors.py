@@ -17,6 +17,7 @@ class Sensor:
 				p.ChangeDutyCycle(7.5)
 				time.sleep(delayTime)
 				p.ChangeDutyCycle(2.5)
+				time.sleep(delayTime)
 		except KeyboardInterrupt:
 			p.stop()
 			GPIO.cleanup()
