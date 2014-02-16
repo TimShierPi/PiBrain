@@ -1,5 +1,6 @@
 import sensors
 import transportation
+import time
 
 class Brain:
 	sensor = 1
@@ -10,8 +11,11 @@ class Brain:
 		sensor = sensors.Sensor()
 		transport = transportation.Transportation()
 		transport.together()
+		time.sleep(1)
 		transport.turnLeft()
+		time.sleep(1)
 		transport.turnRight()
+		print ("And we're done!")
 		
 
 

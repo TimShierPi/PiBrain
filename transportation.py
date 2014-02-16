@@ -5,7 +5,7 @@ LEFT_GPIO = 13
 RIGHT_GPIO = 15
 
 
-DEFAULT_DELAY = 0.2 # 200 ms
+DEFAULT_DELAY = 0.5 # 200 ms
 
 import RPi.GPIO as GPIO
 import time
