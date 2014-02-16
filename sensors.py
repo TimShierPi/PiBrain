@@ -2,15 +2,23 @@ import RPi.GPIO as GPIO
 import time
 
 class Sensor:
+	
 
 	def lookSee(self):
+		p = GPIO.PWM(7,50)
+		p.start(7.5)
+		delayTime =1
 		try:
 			while True:
-				GPIO.output(7,1)
-				time.sleep(0.0015)
-				GPIO.output(7,0)
-				time.sleep(2)
+				p.ChangeDutyCycle(7.5)
+				time.sleep(delayTime)
+				p.ChangeDutyCycle(12.5)
+				time.sleep(delayTime)
+				p.ChangeDutyCycle(7.5)
+				time.sleep(delayTime)
+				p.ChangeDutyCycle(2.5)
 		except KeyboardInterrupt:
+			p.stop()
 			GPIO.cleanup()
 	
 	def __init__(self):
