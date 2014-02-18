@@ -8,7 +8,7 @@ class Sensor:
 	def lookSee(self):
 		p = GPIO.PWM(7,50)
 		p.start(7.5)
-		delayTime =1
+		delayTime =2
 		try:
 			while True:
 				p.ChangeDutyCycle(7.5)
