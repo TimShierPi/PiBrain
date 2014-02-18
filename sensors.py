@@ -29,15 +29,15 @@ class Sensor:
 			
 	def getUltrasonicReading(self):
 		# Send 10us pulse to trigger
-		GPIO.output(ULTRASONIC_TRIGGER, True)
+		GPIO.output(self.ULTRASONIC_TRIGGER, True)
 		time.sleep(0.00001)
-		GPIO.output(ULTRASONIC_TRIGGER, False)
+		GPIO.output(self.ULTRASONIC_TRIGGER, False)
 		start = time.time()
 
-		while GPIO.input(GPIO_ECHO)==0:
+		while GPIO.input(self.ULTRASONIC_ECHO)==0:
 			start = time.time()
 
-		while GPIO.input(GPIO_ECHO)==1:
+		while GPIO.input(self.ULTRASONIC_ECHO)==1:
 			stop = time.time()
 
 		# Calculate pulse length
@@ -58,8 +58,8 @@ class Sensor:
 		# set up ultrasonic
 		ULTRASONIC_TRIGGER = 16
 		ULTRASONIC_ECHO = 18
-		GPIO.setup(ULTRASONIC_TRIGGER,GPIO.OUT)  # Trigger
-		GPIO.setup(ULTRASONIC_ECHO,GPIO.IN)      # Echo
-		GPIO.output(ULTRASONIC_TRIGGER, False)
+		GPIO.setup(self.ULTRASONIC_TRIGGER,GPIO.OUT)  # Trigger
+		GPIO.setup(self.ULTRASONIC_ECHO,GPIO.IN)      # Echo
+		GPIO.output(self.ULTRASONIC_TRIGGER, False)
 
 
