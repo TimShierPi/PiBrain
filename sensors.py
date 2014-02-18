@@ -12,16 +12,16 @@ class Sensor:
 		try:
 			while True:
 				p.ChangeDutyCycle(7.5)
-				print getUltrasonicReading()
+				print self.getUltrasonicReading()
 				time.sleep(delayTime)
 				p.ChangeDutyCycle(12.5)
-				print getUltrasonicReading()
+				print self.getUltrasonicReading()
 				time.sleep(delayTime)
 				p.ChangeDutyCycle(7.5)
-				print getUltrasonicReading()
+				print self.getUltrasonicReading()
 				time.sleep(delayTime)
 				p.ChangeDutyCycle(2.5)
-				print getUltrasonicReading()
+				print self.getUltrasonicReading()
 				time.sleep(delayTime)
 		except KeyboardInterrupt:
 			p.stop()
