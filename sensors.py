@@ -27,7 +27,7 @@ class Sensor:
 			p.stop()
 			GPIO.cleanup()
 			
-	def getUltrasonicReading():
+	def getUltrasonicReading(self):
 		# Send 10us pulse to trigger
 		GPIO.output(ULTRASONIC_TRIGGER, True)
 		time.sleep(0.00001)
