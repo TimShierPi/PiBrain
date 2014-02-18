@@ -56,6 +56,8 @@ class Sensor:
 		# set up servo
 		GPIO.setup(7,GPIO.OUT)
 		# set up ultrasonic
+		ULTRASONIC_TRIGGER = 14
+		ULTRASONIC_ECHO = 16
 		GPIO.setup(ULTRASONIC_TRIGGER,GPIO.OUT)  # Trigger
 		GPIO.setup(ULTRASONIC_ECHO,GPIO.IN)      # Echo
 		GPIO.output(ULTRASONIC_TRIGGER, False)
