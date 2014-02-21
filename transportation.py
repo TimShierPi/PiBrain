@@ -1,7 +1,7 @@
 # Transportation handles all controls to the wheel base. 
 
 # Config
-LEFT_GPIO = 15
+LEFT_GPIO = 11
 RIGHT_GPIO = 13
 
 
@@ -22,6 +22,28 @@ class Transportation:
 		time.sleep(DEFAULT_DELAY)
 		GPIO.output(LEFT_GPIO,GPIO.LOW)
 		GPIO.output(RIGHT_GPIO,GPIO.LOW)
+	
+	def togetherOn(self):
+		GPIO.output(LEFT_GPIO, GPIO.HIGH)
+		GPIO.output(RIGHT_GPIO, GPIO.HIGH)
+	def togetherOff(self):
+		GPIO.output(LEFT_GPIO, GPIO.LOW)
+		GPIO.output(RIGHT_GPIO, GPIO.LOW)
+	def leftOn(self):
+		GPIO.output(LEFT_GPIO,GPIO.HIGH)
+
+	def leftOff(self):
+		GPIO.output(LEFT_GPIO,GPIO.LOW)
+
+	def rightOn(self):
+		GPIO.output(RIGHT_GPIO, GPIO.HIGH)
+
+	def rightOff(self):
+		GPIO.output(RIGHT_GPIO, GPIO.LOW)
+	
+	def allOff(self):
+		GPIO.output(RIGHT_GPIO, GPIO.LOW)
+		GPIO.output(LEFT_GPIO, GPIO.LOW)
 		
 	
 	def turnLeft(distanceTime=DEFAULT_DELAY, counterTurn=True):
