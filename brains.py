@@ -2,25 +2,35 @@ import sensors
 import transportation
 import time
 import worldPerspective
+import random
 
 class Brain:
 	sensor = 1
 	wheels = 1
 	transport = 1
+	distThresh = 350 # half a m clear of everything
 	def __init__(self):
-		# init.
-		print ("I'm ALIVE!")
 		sensor = sensors.Sensor()
-		worldView = worldPerspective.World()
 		transport = transportation.Transportation()
-		for x in range(0, 1):
+		while True:
+			# drive forward
 			transport.together()
+			# check distance
+			distanceMeasure = sensor.getUltrasonicReading()
+			print distanceMeasure
+			# if distance < threshold then turn left (30% inc)
+			
+			while distanceMeasure < self.distThresh:
+				if random.random()>0.5:
+					transport.turnLeft()
+				else:
+					transport.turnRight()
+				distanceMeasure = sensor.getUltrasonicReading()
+				print "In the loop"
+				print distanceMeasure
+				time.sleep(1.5)
+			# repeat above until distance > threshold
 			time.sleep(1)
-			transport.turnLeft()
-			time.sleep(1)
-			transport.turnRight()
-			sensor.lookSee()
-			print ("And we're done!")
 		
 
 
