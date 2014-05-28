@@ -18,7 +18,6 @@ class Transportation:
 
 	def together(distanceTime=DEFAULT_DELAY, forward=True):
 		# move both left and right forward by distanceTime
-		print ("Forward! ")
 		GPIO.output(LEFT_GPIO_1,GPIO.HIGH)
 		GPIO.output(LEFT_GPIO_2,GPIO.LOW)
 		GPIO.output(RIGHT_GPIO_1,GPIO.HIGH)
@@ -28,6 +27,18 @@ class Transportation:
 		GPIO.output(RIGHT_GPIO_1,GPIO.LOW)
 		GPIO.output(LEFT_GPIO_2,GPIO.LOW)
 		GPIO.output(RIGHT_GPIO_2,GPIO.LOW)
+
+	def backwards(self):
+		GPIO.output(LEFT_GPIO_1, GPIO.LOW)
+		GPIO.output(LEFT_GPIO_2,GPIO.HIGH)
+		GPIO.output(RIGHT_GPIO_1, GPIO.LOW)
+		GPIO.output(RIGHT_GPIO_2, GPIO.HIGH)
+		time.sleep(DEFAULT_DELAY)
+		GPIO.output(LEFT_GPIO_1, GPIO.LOW)
+		GPIO.output(LEFT_GPIO_2, GPIO.LOW)
+		GPIO.output(RIGHT_GPIO_1, GPIO.LOW)
+		GPIO.output(RIGHT_GPIO_2, GPIO.LOW)
+		
 	
 	# TODO - make it work with the web server. Future Tim.
 	def togetherOn(self):
@@ -50,11 +61,13 @@ class Transportation:
 	
 	def allOff(self):
 		GPIO.output(RIGHT_GPIO_1, GPIO.LOW)
+		GPIO.output(RIGHT_GPIO_2, GPIO.LOW)
 		GPIO.output(LEFT_GPIO_1, GPIO.LOW)
+		GPIO.output(LEFT_GPIO_2, GPIO.LOW)
 		
 	
-	def turnLeft(distanceTime=DEFAULT_DELAY, counterTurn=True):
-		# move left wheels in direction of 'forward'.
+	def turnRight(distanceTime=DEFAULT_DELAY, counterTurn=True):
+		# move right wheels in direction of 'forward'.
 		# counter turn makes the other wheels reverse to assist in the turn
 		GPIO.output(RIGHT_GPIO_1,GPIO.HIGH)
 		GPIO.output(RIGHT_GPIO_2,GPIO.LOW)
@@ -68,9 +81,8 @@ class Transportation:
 		if counterTurn:
 			GPIO.output(LEFT_GPIO_1,GPIO.LOW)
 			GPIO.output(LEFT_GPIO_2,GPIO.LOW)
-		print ("Left!")
 
-	def turnRight(distanceTime=DEFAULT_DELAY, counterTurn=True):
+	def turnLeft(distanceTime=DEFAULT_DELAY, counterTurn=True):
 		# move right wheels in direction of 'forward'.
 		# counter turn makes the other wheels reverse to assist in the turn
 		GPIO.output(LEFT_GPIO_1,GPIO.HIGH)
@@ -84,7 +96,6 @@ class Transportation:
 		if counterTurn:
 			GPIO.output(RIGHT_GPIO_1, GPIO.LOW)
 			GPIO.output(RIGHT_GPIO_2, GPIO.LOW)
-		print ("Right!")
 	
 	def __init__(self):
 		# init.
@@ -94,4 +105,11 @@ class Transportation:
 		GPIO.setup(RIGHT_GPIO_1, GPIO.OUT) # right wheels
 		GPIO.setup(LEFT_GPIO_2, GPIO.OUT)
 		GPIO.setup(RIGHT_GPIO_2, GPIO.OUT)
-		
+		# run through the boot tests.
+		together()
+		backwards()
+		turnRight(0.5)
+		time.sleep(1)
+		turnLeft(0.5)
+		time.sleep(1)
+		allOff()

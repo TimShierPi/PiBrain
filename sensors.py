@@ -13,11 +13,12 @@ class Sensor:
 		time.sleep(0.00001)
 		GPIO.output(self.ULTRASONIC_TRIGGER, False)
 		start = time.time()
-
-		while GPIO.input(self.ULTRASONIC_ECHO)==0:
+		startAnchor = time.time()
+		while GPIO.input(self.ULTRASONIC_ECHO)==0 and (start-startAnchor)<1000:
 			start = time.time()
 
-		while GPIO.input(self.ULTRASONIC_ECHO)==1:
+		stop = time.time()
+		while GPIO.input(self.ULTRASONIC_ECHO)==1 and (stop-start<1000):
 			stop = time.time()
 
 		# Calculate pulse length
